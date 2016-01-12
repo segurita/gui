@@ -86,5 +86,12 @@ To answer these questions one might have to evaluate each company to estimate it
 value and after a comparison with the price (number of shares multiplied by share price)
 one might recognize good investment opportunities.
 
+# Backend Tasks
+For each company:
+
+1. Estimate its **proxy value** by analyzing available public data
+2. Calculate its **market value** by multiplying the total amount of shares times share price
+3. Make the buying decision based on the comparison of proxy and market values
+
 # Requirements
 * Python 3
