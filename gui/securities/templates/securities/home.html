@@ -37,13 +37,49 @@
         <td>Net income:</td>
         <td class="right">{{ item.net_income|intcomma }}</td>
       </tr>
+
+      <tr>
+        <td colspan="2">---</td>
+      </tr>
+      <tr>
+        <td>Share price soles:</td>
+        <td class="right">{{ item.share_price_soles|intcomma }}</td>
+      </tr>
       <tr>
         <td>Total shares:</td>
         <td class="right">{{ item.total_shares|intcomma }}</td>
       </tr>
       <tr>
-        <td>Share price soles:</td>
-        <td class="right">{{ item.share_price_soles|intcomma }}</td>
+        <td>Earnings per share:</td>
+        <td class="right">{{ item.earnings_per_share|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>P/E ratio:</td>
+        <td class="right">{{ item.pe_ratio|intcomma }}</td>
+      </tr>
+
+      <tr>
+        <td colspan="2">---</td>
+      </tr>
+      <tr>
+        <td>Book value/share:</td>
+        <td class="right">{{ item.book_value_per_share|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Net per share/book value:</td>
+        <td class="right">{{ item.net_per_share_by_book_value|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Price/book value:</td>
+        <td class="right">{{ item.price_by_book_value|intcomma }}</td>
+      </tr>
+      <tr>
+        <td><b>Net working capital</b></td>
+        <td class="right">{{ item.net_working_capital|intcomma }}</td>
+      </tr>
+      <tr>
+        <td><b>Market price</b></td>
+        <td class="right">{{ item.market_price|intcomma }}</td>
       </tr>
       {% endfor %}
     </table>
