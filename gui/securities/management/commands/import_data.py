@@ -68,14 +68,14 @@ class Command(BaseCommand):
                 year=financial_statement_year,
             )
 
-        security.total_assets = item['total_assets']
-        security.total_current_assets = item['total_current_assets']
-        security.total_liabilities = item['total_liabilities']
-        security.total_current_liabilities = item['total_current_liabilities']
-        security.debt = item['debt']
-        security.net_income = item['net_income']
-        security.share_price_soles = item['share_price_soles']
-        security.total_shares = item['total_shares']
+        security.total_assets = round(item['total_assets'], 2)
+        security.total_current_assets = round(item['total_current_assets'], 2)
+        security.total_liabilities = round(item['total_liabilities'], 2)
+        security.total_current_liabilities = round(item['total_current_liabilities'], 2)
+        security.debt = round(item['debt'], 2)
+        security.net_income = round(item['net_income'], 2)
+        security.share_price_soles = round(item['share_price_soles'], 2)
+        security.total_shares = round(item['total_shares'], 2)
         security.save()
 
         print("Updated security: {!r}".format(security))

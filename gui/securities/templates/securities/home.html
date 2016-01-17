@@ -1,49 +1,55 @@
 {% extends 'securities/base.html' %}
+{% load humanize %}
 
 {% block content %}
+<div class="row">
+  <div class="col-md-5">
+    <table class="table table-striped" id="financial statement">
+      {% for item in result %}
+      <tr><td>---</td></tr>
+      <tr>
+        <th colspan="2">
+          {{ item }}
+        </th>
+      </tr>
 
-<table border="1">
-  {% for item in result %}
-    <tr><td>---</td></tr>
-    <tr>
-      <td colspan="2">
-      {{ item }}
-      </td>
-    </tr>
+      <tr>
+        <td>Total assets:</td>
+        <td class="right">{{ item.total_assets|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Total current assets:</td>
+        <td class="right">{{ item.total_current_assets|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Total liabilities:</td>
+        <td class="right">{{ item.total_liabilities|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Total current liabilities:</td>
+        <td class="right">{{ item.total_current_liabilities|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Debt:</td>
+        <td class="right">{{ item.debt|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Net income:</td>
+        <td class="right">{{ item.net_income|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Total shares:</td>
+        <td class="right">{{ item.total_shares|intcomma }}</td>
+      </tr>
+      <tr>
+        <td>Share price soles:</td>
+        <td class="right">{{ item.share_price_soles|intcomma }}</td>
+      </tr>
+      {% endfor %}
+    </table>
 
-    <tr>
-      <td>Total assets:</td>
-      <td>{{ item.total_assets }}</td>
-    </tr>
-    <tr>
-      <td>Total current assets:</td>
-      <td>{{ item.total_current_assets }}</td>
-    </tr>
-    <tr>
-      <td>Total liabilities:</td>
-      <td>{{ item.total_liabilities }}</td>
-    </tr>
-    <tr>
-      <td>Total current liabilities:</td>
-      <td>{{ item.total_current_liabilities }}</td>
-    </tr>
-    <tr>
-      <td>Debt:</td>
-      <td>{{ item.debt }}</td>
-    </tr>
-    <tr>
-      <td>Net income:</td>
-      <td>{{ item.net_income }}</td>
-    </tr>
-    <tr>
-      <td>Total shares:</td>
-      <td>{{ item.total_shares }}</td>
-    </tr>
-    <tr>
-      <td>Share price soles:</td>
-      <td>{{ item.share_price_soles }}</td>
-    </tr>
-  {% endfor %}
-</table>
+  </div><!-- col -->
+</div><!-- row -->
+
 
 {% endblock content %}
