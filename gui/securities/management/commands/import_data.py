@@ -39,13 +39,15 @@ class Command(BaseCommand):
         return os.path.basename(file_path)
 
     def update_item_in_database(self, item, security_code):
-        if security_code == "continc1":
-            company_name = "Banco Continental"
+        companies = {
+            "continc1": "Banco Continental",
+            "scotiac1": "Banco Scotiabank",
+        }
 
         try:
-            company = Company.objects.get(name=company_name)
+            company = Company.objects.get(name=companies[security_code])
         except ObjectDoesNotExist:
-            company = Company(name=company_name)
+            company = Company(name=companies[security_code])
             company.save()
 
         item_year = item['year']
@@ -68,14 +70,14 @@ class Command(BaseCommand):
                 year=financial_statement_year,
             )
 
-        security.total_assets = round(item['total_assets'], 2)
-        security.total_current_assets = round(item['total_current_assets'], 2)
-        security.total_liabilities = round(item['total_liabilities'], 2)
-        security.total_current_liabilities = round(item['total_current_liabilities'], 2)
-        security.debt = round(item['debt'], 2)
-        security.net_income = round(item['net_income'], 2)
-        security.share_price_soles = round(item['share_price_soles'], 2)
-        security.total_shares = round(item['total_shares'], 2)
+        security.total_assets = round(item['total_assets'], 1)
+        security.total_current_assets = round(item['total_current_assets'], 1)
+        security.total_liabilities = round(item['total_liabilities'], 1)
+        security.total_current_liabilities = round(item['total_current_liabilities'], 1)
+        security.debt = round(item['debt'], 1)
+        security.net_income = round(item['net_income'], 1)
+        security.share_price_soles = round(item['share_price_soles'], 1)
+        security.total_shares = round(item['total_shares'], 1)
         security.save()
 
-        print("Updated security: {!r}".format(security))
+        print("Updated security: {!r}\n".format(security))

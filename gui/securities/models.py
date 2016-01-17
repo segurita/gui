@@ -40,14 +40,14 @@ class FinancialStatement(models.Model):
         )
 
     def save(self, *args, **kwargs):
-        self.earnings_per_share = round(self.net_income / self.total_shares, 2)
-        self.pe_ratio = round(float(self.share_price_soles) / self.earnings_per_share, 2)
-        self.book_value_per_share = round((self.total_assets - self.total_liabilities) / self.total_shares, 2)
-        self.net_per_share_by_book_value = round(self.earnings_per_share * 100 / self.book_value_per_share, 2)
-        self.price_by_book_value = round(float(self.share_price_soles) / self.book_value_per_share, 2)
-        self.pe_times_price_by_book_value = round(self.pe_ratio * self.price_by_book_value, 2)
-        self.net_working_capital = round(self.total_assets - self.total_liabilities, 2)
-        self.market_price = round(self.share_price_soles * self.total_shares, 2)
+        self.earnings_per_share = round(self.net_income / self.total_shares, 1)
+        self.pe_ratio = round(float(self.share_price_soles) / self.earnings_per_share, 1)
+        self.book_value_per_share = round((self.total_assets - self.total_liabilities) / self.total_shares, 1)
+        self.net_per_share_by_book_value = round(self.earnings_per_share * 100 / self.book_value_per_share, 1)
+        self.price_by_book_value = round(float(self.share_price_soles) / self.book_value_per_share, 1)
+        self.pe_times_price_by_book_value = round(self.pe_ratio * self.price_by_book_value, 1)
+        self.net_working_capital = round(self.total_assets - self.total_liabilities, 1)
+        self.market_price = round(self.share_price_soles * self.total_shares, 1)
         super(FinancialStatement, self).save(*args, **kwargs)
 
 
