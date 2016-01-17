@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'securities/base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<table border="1">
+  {% for item in result %}
+    <tr><td>---</td></tr>
+    <tr>
+      <td colspan="2">
+      {{ item }}
+      </td>
+    </tr>
+
+    <tr>
+      <td>Total assets:</td>
+      <td>{{ item.total_assets }}</td>
+    </tr>
+    <tr>
+      <td>Total current assets:</td>
+      <td>{{ item.total_current_assets }}</td>
+    </tr>
+    <tr>
+      <td>Total liabilities:</td>
+      <td>{{ item.total_liabilities }}</td>
+    </tr>
+    <tr>
+      <td>Total current liabilities:</td>
+      <td>{{ item.total_current_liabilities }}</td>
+    </tr>
+    <tr>
+      <td>Debt:</td>
+      <td>{{ item.debt }}</td>
+    </tr>
+    <tr>
+      <td>Net income:</td>
+      <td>{{ item.net_income }}</td>
+    </tr>
+    <tr>
+      <td>Total shares:</td>
+      <td>{{ item.total_shares }}</td>
+    </tr>
+    <tr>
+      <td>Share price soles:</td>
+      <td>{{ item.share_price_soles }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

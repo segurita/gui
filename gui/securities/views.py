@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from securities.models import Company
+from securities.models import FinancialStatement
 
 
 def home(request):
-    context = Company.objects.all()
-    print(context)
+    financial_statements = FinancialStatement.objects.all()
+    context = {'result': financial_statements}
     return render(request, 'securities/home.html', context)
