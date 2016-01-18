@@ -8,11 +8,51 @@
   </div>
 </div>
 
-{% for item in result %}
   <div class="row">
-    {% include 'securities/security_full.html' %}
+    <div class="col-md-8">
+
+      <table class="table">
+        <tr>
+          <td>
+            <table class="table table-striped">
+              <tr>
+                <th>Security<br />&nbsp;</th>
+              </tr>
+              <tr>
+                <td>Share price</td>
+              </tr>
+              <tr>
+                <td>P/E ratio:</td>
+              </tr>
+              <tr>
+                <td>Book value/share:</td>
+              </tr>
+              <tr>
+                <td>Net per share/book value:</td>
+              </tr>
+              <tr>
+                <td>Price/book value:</td>
+              </tr>
+              <tr>
+                <td>PE*price/book value:</td>
+              </tr>
+              <tr>
+                <td><b>Net working capital</b></td>
+              </tr>
+              <tr>
+                <td><b>Market price</b></td>
+              </tr>
+            </table>
+          </td>
+          {% for item in result %}
+            <td>
+              {% include 'securities/security_summary.html' %}
+            </td>
+          {% endfor %}
+        </tr>
+      </table>
+    </div><!-- col -->
   </div><!-- row -->
-{% endfor %}
 
 
 
