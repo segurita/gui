@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
-from securities.models import FinancialStatement
+from securities.models import FinancialStatement, Year
 
 
 def home(request):
-    financial_statements = FinancialStatement.objects.all().filter(year__year=2015)
+    year = Year.objects.all().order_by('-year')[0]
+    financial_statements = FinancialStatement.objects.all().filter(year=year)
     context = {'result': financial_statements}
     return render(request, 'securities/home.html', context)
