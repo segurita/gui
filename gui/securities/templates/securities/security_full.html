@@ -1,4 +1,8 @@
+{% extends 'securities/base.html' %}
 {% load humanize %}
+
+{% block content %}
+{% for item in result %}
 <div class="col-md-5">
   <table class="table table-striped">
     <tr>
@@ -87,3 +91,5 @@
     </tr>
   </table>
 </div><!-- col -->
+{% endfor %}
+{% endblock content %}
