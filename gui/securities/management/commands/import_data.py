@@ -43,6 +43,7 @@ class Command(BaseCommand):
         companies = {
             "continc1": "Banco Continental",
             "creditc1": "Banco de Crédito",
+            "interbc1": "Banco Interbank",
             "scotiac1": "Banco Scotiabank",
         }
 
