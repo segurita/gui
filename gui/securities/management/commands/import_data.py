@@ -1,6 +1,7 @@
 import glob
 import json
 import os
+import sys
 
 from django.core.management.base import BaseCommand, CommandError
 from django.core.exceptions import ObjectDoesNotExist
@@ -41,11 +42,16 @@ class Command(BaseCommand):
     def update_item_in_database(self, item, security_code):
         companies = {
             "continc1": "Banco Continental",
+            "creditc1": "Banco de Crédito",
             "scotiac1": "Banco Scotiabank",
         }
 
         try:
             company = Company.objects.get(name=companies[security_code])
+        except KeyError:
+            print("\nSecurity code {!r} does not match any company. Add it to "
+                  "this script (line 42)".format(security_code))
+            sys.exit(1)
         except ObjectDoesNotExist:
             company = Company(name=companies[security_code])
             company.save()
