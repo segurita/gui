@@ -9,21 +9,42 @@
     <tr>
       <td class="right">{{ item.share_price_soles|intcomma }}</td>
     </tr>
+
     <tr>
-      <td class="right">{{ item.pe_ratio|intcomma }}</td>
+      {% if item.pe_ratio < 10 %}
+        <td class="right green">
+      {% else %}
+        <td class="right red">
+      {% endif %}
+          {{ item.pe_ratio|intcomma }}
+        </td>
     </tr>
+
     <tr>
       <td class="right">{{ item.book_value_per_share|intcomma }}</td>
     </tr>
     <tr>
       <td class="right">{{ item.net_per_share_by_book_value|intcomma }}</td>
     </tr>
+
     <tr>
-      <td class="right">{{ item.price_by_book_value|intcomma }}</td>
+      {% if item.price_by_book_value < 1.5 %}
+        <td class="right green">
+      {% else %}
+        <td class="right red">
+      {% endif %}
+          {{ item.price_by_book_value|intcomma }}</td>
     </tr>
+
     <tr>
-      <td class="right">{{ item.pe_times_price_by_book_value|intcomma }}</td>
+      {% if item.pe_times_price_by_book_value < 15 %}
+        <td class="right green">
+      {% else %}
+        <td class="right red">
+      {% endif %}
+          {{ item.pe_times_price_by_book_value|intcomma }}</td>
     </tr>
+
     <tr>
       <td class="right">{{ item.net_working_capital|intcomma }}</td>
     </tr>
